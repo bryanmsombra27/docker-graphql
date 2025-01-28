@@ -39,6 +39,8 @@ jobs:
       run: |
           docker build -t bryanmshadow/docker-graphql:$NEW_VERSION .
     - name: Push docker image
+      env:
+         NEW_VERSION: ${{steps.version.outputs.version}}
       run: |
           docker push bryanmshadow/docker-graphql:$NEW_VERSION
          
